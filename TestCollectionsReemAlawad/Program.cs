@@ -17,50 +17,11 @@ namespace TestCollectionsReemAlawad
     {
         static void Main(string[] args)
         {
-            
-            #region bij UnityContainer           
-            //try
-            //{
-            //    UnityContainer container = (UnityContainer)new UnityContainer().AddExtension(new Diagnostic());
-            //    var info = container.Resolve<IBestelling>();
-            //    info.VoegProductToe(new Parfum(0, "BVLGARI", "BLV", 75, 61.52));
-            //    info.VoegProductToe(new Deodorant(0, "Cacharel", "Anais", 50, 24.50, DeoType.VAPO));
-            //    info.VoegProductToe(new Deodorant(0, "DKNY", "Be Delicious Woman", 100, 33.65, DeoType.STICK));
-            //    info.VoegProductToe(new Parfum(0, "Dolce & Gabbana", "Light Blue", 100, 66.72));
-            //    info.VoegProductToe(new Parfum(0, "Georgio Armani", "Code Donna", 50, 59.32));
-            //    info.VoegProductToe(new Parfum(0, "Georgio Armani", "Absolutely Irresistible Pour Elle", 30, 39.84));
-            //    info.VoegProductToe(new Parfum(0, "Georgio Armani", "Jazz", 75, 76.00));
-            //    info.VoegProductToe(new Parfum(0, "Givency", "BLV", 75, 75.42));
-            //    info.VoegProductToe(new AfterShave(0, "Ted Lapidus", "Light Blue", 50, 44.48, Soort.VAPO));
-            //    info.VoegProductToe(new AfterShave(0, "Yves Saint Laurent", "Code Donna", 50, 39.84, Soort.VAPO));
-
-
-            //    Console.WriteLine("All Products:");
-            //    info.ToonLijst();
-
-            //    Console.WriteLine("Products voor Brand 'Georgio Armani':");
-            //    info.ToonPerMerk("Georgio Armani");
-
-            //    Console.WriteLine("All Perfumes:");
-            //    info.ToonParfums();
-
-            //    Product duursteProducte = info.ZoekDuursteProduct();
-            //    Console.WriteLine($"Duurste Product:");
-            //    Console.WriteLine(duursteProducte.ToString());
-
-            //    Console.WriteLine($"Total Price:{info.TotalePrijs()}");
-
-            //    SchrijfNaarBestand schrijfNaarBestande = new SchrijfNaarBestand();
-            //    schrijfNaarBestande.SchrijfLijstNaarBestand(info.Bestellingen);
-            //}
-            //catch (Exception ex) 
-            //{
-            //    Console.WriteLine($"Error:{ex.Message}");
-            //    WriteErrorToFile(ex);
-            //}
-            #endregion
-            #region bij normal
-            Bestelling bestelling = new Bestelling();
+ 
+            UnityContainer countainer = (UnityContainer)new UnityContainer().AddExtension(new Diagnostic());
+            var bestelling = countainer.Resolve<Bestelling>();
+            // IBestelling bestelling = Factory.GetBestelling();
+            // Bestelling bestelling = new Bestelling();
             bestelling.VoegProductToe(new Parfum(0, "BVLGARI", "BLV", 75, 61.52));
             bestelling.VoegProductToe(new Deodorant(0, "Dolce & Gabbana", "Light Blue", 100, 66.72, DeoType.VAPO));
             bestelling.VoegProductToe(new Deodorant(0, "Georgio Armani", "Code Donna", 50, 59.32, DeoType.STICK));
@@ -100,7 +61,7 @@ namespace TestCollectionsReemAlawad
 
             SchrijfNaarBestand schrijfNaarBestand = new SchrijfNaarBestand();
             schrijfNaarBestand.SchrijfLijstNaarBestand(bestelling.Bestellingen);
-            #endregion
+          
         }
         static void WriteErrorToFile(Exception ex)
         {

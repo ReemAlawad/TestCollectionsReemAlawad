@@ -7,16 +7,18 @@ using System.Threading.Tasks;
 
 namespace ProductenLibrary.Classen
 {
-    public class Bestelling : IBerekenbaar
+    public class Bestelling : IBerekenbaar, IBestelling
     {
         public List<Product> Bestellingen { get; set; } = new List<Product>();
+        
+        
         private static int productNummer = 1000;
         private List<Product> products = new List<Product>();
         public void SorteerBestellingen()
         {
             products.Sort();
         }
-       
+
 
         public void VoegProductToe(Product product)
         {
@@ -82,6 +84,6 @@ namespace ProductenLibrary.Classen
             return total;
         }
 
-       
+
     }
 }

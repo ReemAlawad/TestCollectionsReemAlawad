@@ -9,7 +9,7 @@ using System.Threading;
 
 namespace ProductenLibrary
 {
-    public class Product : IComparable<Product>, IProduct
+    public class Product : IComparable<Product>
     {
         public int ProductNummer { get; set; }
         public string Merk { get; set; }
